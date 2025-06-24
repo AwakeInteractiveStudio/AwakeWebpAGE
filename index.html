@@ -13,14 +13,15 @@
       const r = new rive.Rive({
         src: "awakewebpage.riv",
         canvas: document.getElementById('riveCanvas'),
-        autoBind: false,
+        autoBind: true,
         autoplay: true,
         artboard: 'Slide',
         stateMachines: 'LayoutControl',
         onLoad: () => {
-        const namedVM = r.viewModelByName("LogoData");
-        const vmiDefault = namedVM.instanceByName("Instance");
-        r.bindViewModelInstance(vmiDefault);
+        //const namedVM = r.viewModelByName("LogoData");
+        //const vmiDefault = namedVM.instanceByName("Instance");
+        //r.bindViewModelInstance(vmiDefault);
+          let boundInstance = r.viewModelInstance;
           r.resizeDrawingSurfaceToCanvas();
         },
       });
