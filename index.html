@@ -18,7 +18,7 @@
         artboard: 'Slide',
         stateMachines: 'LayoutControl',
         onLoad: () => {
-          let boundInstance = rive.viewModelInstance;
+        const namedVM = r.viewModelByName("LogoData");
           r.resizeDrawingSurfaceToCanvas();
         },
       });
