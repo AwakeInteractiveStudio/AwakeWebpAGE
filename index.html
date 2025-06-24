@@ -19,7 +19,7 @@
         stateMachines: 'LayoutControl',
         onLoad: () => {
         const namedVM = r.viewModelByName("LogoData");
-        const vmiDefault = namedVM.defaultInstance();
+        const vmiDefault = namedVM.instanceByName("Instance");
         r.bindViewModelInstance(vmiDefault);
           r.resizeDrawingSurfaceToCanvas();
         },
