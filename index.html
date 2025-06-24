@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Awake Interactive Design Studio</title>
     <style>
-body, html {
+body{
 
     margin: 0;
+    padding: 0;
     font-size: 0px;
     font-family: Arial, sans-serif;
     overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -19,9 +20,9 @@ body, html {
     align-items: center;
 }
 canvas {
-    width: 1920px; /* Set canvas width manually */
-    margin: 0 auto; /* Center the canvas horizontally */
-    display: block; /* Ensure proper centering */
+            /*display: block;*/
+            width: 100vw;  
+            height: 100vh;
     }
 </style>
     <script src="https://unpkg.com/@rive-app/webgl2"></script>
@@ -32,8 +33,11 @@ canvas {
 
   <body>
     <canvas id="riveCanvas"></canvas>
-    <div id="heightDisplay"></div>
+    <div id="widthDisplay"></div>
     <script>
+
+
+
       const r = new rive.Rive({
         src: "awakewebpage.riv",
         canvas: document.getElementById('riveCanvas'),
@@ -47,6 +51,18 @@ canvas {
         //r.bindViewModelInstance(vmiDefault);
           //let boundInstance = r.viewModelInstance;
           r.resizeDrawingSurfaceToCanvas();
+
+    // Handle window resize to maintain full screen
+                window.addEventListener("resize", () => {
+                    r.resizeDrawingSurfaceToCanvas();
+                });
+                
+                // Handle device pixel ratio changes
+                window.matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`)
+                    .addEventListener("change", () => {
+                        r.resizeDrawingSurfaceToCanvas();
+                    });
+
         },
       });
     </script>
