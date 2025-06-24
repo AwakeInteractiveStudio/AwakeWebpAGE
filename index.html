@@ -12,12 +12,11 @@
     <script>
       const r = new rive.Rive({
         src: "awakewebpage.riv",
-        canvas: document.getElementById("canvas"),
+        canvas: document.getElementById('riveCanvas'),
         autoplay: true,
-        artboard: "Slide", // Optional. If not supplied the default is selected
-        stateMachines: "State Machine 1",
+        artboard: 'Slide',
+        stateMachines: 'LayoutControl',
         onLoad: () => {
-          // Ensure the drawing surface matches the canvas size and device pixel ratio
           r.resizeDrawingSurfaceToCanvas();
         },
       });
